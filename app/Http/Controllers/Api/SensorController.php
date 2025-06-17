@@ -33,6 +33,10 @@ class SensorController extends Controller
                 $query->byStatus($request->query('status'));
             }
 
+            if ($request->has('location_id')) {
+                $query->byLocation($request->query('location_id'));
+            }
+
             return $query->orderBy('created_at', 'desc')->paginate($request->get('per_page', 25));
           });
 

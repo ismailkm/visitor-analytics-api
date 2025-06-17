@@ -33,6 +33,14 @@ class Sensor extends Model
      }
 
      /**
+      * Scope a query to filter records by location.
+      */
+     public function scopeByLocation(Builder $query, int $locationId): void
+     {
+         $query->where('location_id', $locationId);
+     }
+     
+     /**
       * Scope a query to return only active .
       */
      public function scopeActiveOnly(Builder $query): void
